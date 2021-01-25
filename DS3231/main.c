@@ -11,26 +11,26 @@ volatile int year;
 
 int main(void)
 {
-	ds3231_data_struct ddw;
+	ds3231_data_struct ds3231_handle;
 	
 	i2c_init();
 	
-	ds3231_set_time(15, 28, 00);
-	ds3231_set_date(12, 01, 21);
+	ds3231_set_time(11, 28, 00);
+	ds3231_set_date(25, 01, 21);
 	
 	while (1)
 	{
-		ds3231_get_time(&ddw);
+		ds3231_get_time(&ds3231_handle);
 
-		seconds = ddw.seconds;
-		minutes = ddw.minutes;
-		hours = ddw.hours;
+		seconds = ds3231_handle.seconds;
+		minutes = ds3231_handle.minutes;
+		hours = ds3231_handle.hours;
 
-		ds3231_get_date(&ddw);
+		ds3231_get_date(&ds3231_handle);
 		
-		date 	= ddw.date;
-		month = ddw.month;
-		year 	= ddw.year;
+		date 	= ds3231_handle.date;
+		month = ds3231_handle.month;
+		year 	= ds3231_handle.year;
 	}	
 	
 }

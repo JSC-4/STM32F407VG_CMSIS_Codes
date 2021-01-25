@@ -1,3 +1,13 @@
+/*
+ * NOTE(1): To work out the value for the I2C clock in the CCR register
+ *					do: Thigh = Tlow = CCR*Tpclk1. To get Thigh/Tlow check datasheet of module
+ *					but seems like it's best to keep them the same value. In this example
+ *					Thigh/Tlow = 5us, Tplck1 = 1/Fplck1 = 1/16MHz. CCR = 5us/(1/16MHz) = 80
+ * 		 			Example to create a 1hz counter prescaler = 1600 - 1, ARR = 10000 -1 (16MHz/(1600*10000))
+ * NOTE(2): To work out TRISE do 1000ns/(1/16MHz)+1, so in this example it is 16+1=7
+ * NOTE(3): Checking if the bit is set, is also the same as reading the register i.e resetting the register. 
+ */
+ 
 #include "stm32f4xx.h"                  // Device header
 #include "DS3231.h"
 
@@ -30,7 +40,7 @@ static void i2c_writebyte(uint8_t byte)
 	while (!(I2C1->SR1 & I2C_SR1_TXE));		// Wait for TX register to be empty
 }
 
-static uint8_t i2c_readbyte(Ack_send ack)
+static uint8_t i2c_readbyte(ack_send ack)
 {
 	// To read multiple bytes set ack to 1
 	if (ack)

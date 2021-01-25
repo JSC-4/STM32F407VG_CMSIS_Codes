@@ -168,25 +168,15 @@
         <Ww>
           <count>3</count>
           <WinNumber>1</WinNumber>
-          <ItemText>ds3231_get_time</ItemText>
+          <ItemText>date,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>4</count>
           <WinNumber>1</WinNumber>
-          <ItemText>ddw,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>5</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>date,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>6</count>
-          <WinNumber>1</WinNumber>
           <ItemText>month,0x0A</ItemText>
         </Ww>
         <Ww>
-          <count>7</count>
+          <count>5</count>
           <WinNumber>1</WinNumber>
           <ItemText>year,0x0A</ItemText>
         </Ww>

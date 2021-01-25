@@ -4,6 +4,7 @@
 #include "stm32f4xx.h"                  // Device header
 #include "stdint.h"
 
+// I2C functions
 void i2c_init(void);
 static void i2c_start(void);
 static void i2c_stop(void);
@@ -11,13 +12,14 @@ static void i2c_addr_r(uint8_t addr);
 static void i2c_addr_w(uint8_t addr);
 static void i2c_writebyte(uint8_t byte);
 
+// Enable or disable multi-byte sending
 typedef enum
 {
 	MULTI_BYTE_OFF = 0,
 	MULTI_BYTE_ON	
-}Ack_send;
+}ack_send;
 
-static uint8_t i2c_readbyte(Ack_send ack);
+static uint8_t i2c_readbyte(ack_send ack);
 
 // Convert the bcd value to decimal
 static int bcd2dec(uint8_t b);
